@@ -62,8 +62,8 @@
 </head>
 <body>
 
-<!-- 🎵 โหลดเพลง (ต้องอัปไฟล์ raoCOC.mp3 ไว้โฟลเดอร์เดียวกับ index.html) -->
-<audio id="bgm" src="raoCOC.mp3" autoplay loop muted playsinline></audio>
+<!-- 🎵 โหลดเพลง (อย่าลืมอัปโหลด raoCOC.mp3 ขึ้น GitHub คู่กัน) -->
+<audio id="bgm" src="raoCOC.mp3" loop></audio>
 
 <button id="startBtn">สุขสันต์วันครบรอบ 1 เดือนน้า 💗</button>
 <div id="message"></div>
@@ -92,10 +92,8 @@
     // เมื่อกดปุ่มแรก
     startBtn.onclick = () => {
 
-        // 🎵 ปลด mute เมื่อผู้ใช้กดปุ่ม
-        const bgm = document.getElementById("bgm");
-        bgm.muted = false;
-        bgm.volume = 0.7;
+        // 🎵 เล่นเพลง (Chrome/Edge มือถือยอมให้เล่นเพราะเป็น user action)
+        document.getElementById("bgm").play();
 
         spawnEmojis();
 
@@ -108,7 +106,6 @@
         }, 1800);
     };
 
-    // เมื่อกดปุ่ม "กดอีกๆๆๆ"
     moreBtn.onclick = () => {
         message.style.opacity = 0;
         moreBtn.style.display = "none";
